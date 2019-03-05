@@ -29,9 +29,10 @@ dots <- function(...) {
 
 asciify <- function(x) {
   stopifnot(is.character(x))
+# Bug fix a la https://github.com/r-lib/usethis/issues/581#issuecomment-456972868
+  # x <- tolower(x)
 
-  x <- tolower(x)
-  gsub("[^a-z0-9_-]+", "-", x)
+  gsub("[^a-zA-Z0-9_-]+", "-", x)
 }
 
 slug <- function(x, ext) {
